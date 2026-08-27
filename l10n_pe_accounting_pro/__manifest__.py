@@ -60,7 +60,7 @@ Notas importantes de honestidad técnica (para que sepas exactamente qué automa
     'category': 'Accounting/Localizations',
     'author': "Studio Pro",
     'maintainer': "Studio Pro",
-    'website': "https://github.com/",
+    'website': "https://github.com/luissalvador1987/l10n_pe_accounting_pro",
     'support': "luissalvador1987@gmail.com",
     'license': 'OPL-1',
     'price': 100.0,

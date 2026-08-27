@@ -27,6 +27,8 @@ Client ID/Secret; confirma con el Manual del Programador vigente la URL exacta d
 en Producción.
     """,
     'version': '18.0.1.0.0',
+    'author': "Designweblp",
+    'maintainer': "Designweblp",
     'category': 'Accounting/Localizations',
      'support': "luissalvador1987@gmail.com",
     'license': 'OPL-1',

@@ -28,8 +28,10 @@ en Producción.
     """,
     'version': '18.0.1.0.0',
     'category': 'Accounting/Localizations',
-    'author': "Studio Pro",
-    'license': 'LGPL-3',
+     'support': "luissalvador1987@gmail.com",
+    'license': 'OPL-1',
+    'price': 100.0,
+    'currency': 'EUR',
     'depends': ['l10n_pe', 'l10n_latam_invoice_document', 'account_debit_note', 'account', 'mail'],
     'external_dependencies': {
         'python': ['cryptography', 'OpenSSL', 'lxml', 'qrcode'],

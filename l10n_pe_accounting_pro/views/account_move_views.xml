@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_move_form_l10n_pe_accounting" model="ir.ui.view">
+        <field name="name">account.move.form.inherit.l10n.pe.accounting.pro</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="%(l10n_pe_accounting_pro.action_retention_pay_wizard)d" type="action"
+                        string="Aplicar retención IGV y pagar" class="btn-secondary"
+                        groups="l10n_pe_accounting_pro.group_l10n_pe_accounting_user"
+                        invisible="move_type != 'in_invoice' or state != 'posted' or payment_state in ('paid', 'in_payment', 'reversed')"/>
+                <button name="%(l10n_pe_accounting_pro.action_perception_received_wizard)d" type="action"
+                        string="Registrar percepción sufrida" class="btn-secondary"
+                        groups="l10n_pe_accounting_pro.group_l10n_pe_accounting_user"
+                        invisible="move_type != 'in_invoice' or state != 'posted'"/>
+            </xpath>
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_l10n_pe_view_retentions" type="object" class="oe_stat_button"
+                        icon="fa-percent" invisible="l10n_pe_retention_count == 0">
+                    <field name="l10n_pe_retention_count" widget="statinfo" string="Retenciones"/>
+                </button>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page string="Perú - Contabilidad Pro" name="l10n_pe_accounting_pro"
+                      invisible="not l10n_pe_is_subject_to_detraction and move_type not in ('out_invoice','out_refund')">
+                    <group string="Detracción (SPOT)" invisible="not l10n_pe_is_subject_to_detraction">
+                        <field name="l10n_pe_detraction_ids" nolabel="1">
+                            <list editable="bottom" create="0">
+                                <field name="category_id"/>
+                                <field name="percentage"/>
+                                <field name="base_amount"/>
+                                <field name="detraction_amount"/>
+                                <field name="net_payable"/>
+                                <field name="state" widget="badge"
+                                       decoration-success="state == 'deposited'"/>
+                                <field name="constancia_number"/>
+                                <field name="constancia_date"/>
+                                <button name="%(l10n_pe_accounting_pro.action_detraction_register_wizard)d"
+                                        type="action" string="Registrar depósito"
+                                        context="{'default_detraction_id': id}"
+                                        invisible="state == 'deposited'"/>
+                            </list>
+                        </field>
+                    </group>
+                    <group string="Percepción de IGV" invisible="move_type not in ('out_invoice','out_refund')">
+                        <field name="l10n_pe_perception_ids" nolabel="1">
+                            <list create="0" edit="0">
+                                <field name="number"/>
+                                <field name="rate"/>
+                                <field name="perception_amount"/>
+                                <field name="state" widget="badge"
+                                       decoration-success="state == 'posted'"/>
+                            </list>
+                        </field>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

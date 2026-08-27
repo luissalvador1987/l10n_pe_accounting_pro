@@ -1,0 +1,7 @@
+from . import l10n_pe_accounting_detraction_register_wizard
+from . import l10n_pe_accounting_retention_pay_wizard
+from . import l10n_pe_accounting_perception_received_wizard
+from . import l10n_pe_accounting_ple_export_wizard
+from . import l10n_pe_accounting_closing_wizard
+from . import l10n_pe_accounting_plame_export_wizard
+from . import l10n_pe_accounting_financial_report_wizard

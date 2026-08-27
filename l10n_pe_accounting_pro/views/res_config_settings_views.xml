@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.l10n.pe.accounting.pro</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app data-string="Contabilidad Perú" string="Contabilidad Perú"
+                     name="l10n_pe_accounting_pro">
+                    <block title="Régimen tributario" name="l10n_pe_regime_setting_container">
+                        <setting id="l10n_pe_regime_setting">
+                            <field name="l10n_pe_tax_regime"/>
+                        </setting>
+                        <setting id="l10n_pe_income_tax_setting"
+                                 help="Usada para el impuesto a la renta diferido de activos fijos.">
+                            <field name="l10n_pe_income_tax_rate"/>
+                        </setting>
+                    </block>
+                    <block title="Detracciones (SPOT)" name="l10n_pe_detraction_setting_container">
+                        <setting id="l10n_pe_detraction_setting"
+                                 help="Cuenta en el Banco de la Nación para recibir detracciones de tus clientes.">
+                            <field name="l10n_pe_detraction_bank_account_id"/>
+                        </setting>
+                    </block>
+                    <block title="Retenciones de IGV" name="l10n_pe_retention_setting_container">
+                        <setting id="l10n_pe_retention_setting"
+                                 help="Marca si SUNAT te designó Agente de Retención de IGV (R.S. 037-2002)."
+                                 companies="True">
+                            <field name="l10n_pe_is_retention_agent"/>
+                            <div class="content-group" invisible="not l10n_pe_is_retention_agent">
+                                <div class="mt8">
+                                    <label for="l10n_pe_retention_rate" class="o_light_label"/>
+                                    <field name="l10n_pe_retention_rate"/>
+                                </div>
+                                <div class="mt8">
+                                    <label for="l10n_pe_retention_min_amount" class="o_light_label"/>
+                                    <field name="l10n_pe_retention_min_amount"/>
+                                </div>
+                                <div class="mt8"><field name="l10n_pe_retention_payable_account_id"/></div>
+                                <div class="mt8"><field name="l10n_pe_retention_receivable_account_id"/></div>
+                            </div>
+                        </setting>
+                    </block>
+                    <block title="Percepciones de IGV" name="l10n_pe_perception_setting_container">
+                        <setting id="l10n_pe_perception_setting"
+                                 help="Marca si SUNAT te designó Agente de Percepción de IGV (Venta Interna, R.S. 058-2006).">
+                            <field name="l10n_pe_is_perception_agent"/>
+                            <div class="content-group" invisible="not l10n_pe_is_perception_agent">
+                                <div class="mt8">
+                                    <label for="l10n_pe_perception_rate" class="o_light_label"/>
+                                    <field name="l10n_pe_perception_rate"/>
+                                </div>
+                                <div class="mt8"><field name="l10n_pe_perception_payable_account_id"/></div>
+                                <div class="mt8"><field name="l10n_pe_perception_receivable_account_id"/></div>
+                            </div>
+                        </setting>
+                    </block>
+                    <block title="SIRE / PLE" name="l10n_pe_sire_setting_container">
+                        <setting id="l10n_pe_sire_setting"
+                                 help="Puramente informativo: este módulo genera el TXT clásico de PLE, no envía nada al API de SIRE.">
+                            <field name="l10n_pe_sire_since_period"/>
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+</odoo>

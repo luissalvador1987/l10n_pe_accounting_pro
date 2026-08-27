@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_financial_report_wizard_form" model="ir.ui.view">
+        <field name="name">l10n_pe_accounting.financial.report.wizard.form</field>
+        <field name="model">l10n_pe_accounting.financial.report.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                    <field name="report_type"/>
+                    <field name="date_from" invisible="report_type == 'bs'"/>
+                    <field name="date_to"/>
+                </group>
+                <button string="Generar" type="object" name="action_generate" class="btn-primary"
+                        invisible="result_line_ids"/>
+                <field name="result_line_ids" readonly="1" invisible="not result_line_ids">
+                    <list decoration-bf="bold" create="0" edit="0" delete="0">
+                        <field name="name"/>
+                        <field name="amount"/>
+                        <field name="bold" column_invisible="1"/>
+                        <field name="level" column_invisible="1"/>
+                    </list>
+                </field>
+                <footer>
+                    <button string="Recalcular" type="object" name="action_generate"
+                            invisible="not result_line_ids"/>
+                    <button string="Cerrar" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_financial_report_wizard" model="ir.actions.act_window">
+        <field name="name">Estados Financieros NIIF</field>
+        <field name="res_model">l10n_pe_accounting.financial.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

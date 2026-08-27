@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_invoice_document" inherit_id="account.report_invoice_document">
+        <xpath expr="//div[@id='informations']" position="after">
+            <div class="row mb-4" t-if="o.l10n_pe_edi_is_required">
+                <div class="col-3" t-if="o.l10n_pe_edi_qr_image">
+                    <img t-att-src="image_data_uri(o.l10n_pe_edi_qr_image)" style="width:120px;height:120px;"/>
+                </div>
+                <div class="col-9">
+                    <strong>
+                        Representación impresa de
+                        <span t-if="o.l10n_latam_document_type_id.code == '01'">la FACTURA ELECTRÓNICA</span>
+                        <span t-elif="o.l10n_latam_document_type_id.code == '03'">la BOLETA DE VENTA ELECTRÓNICA</span>
+                        <span t-elif="o.l10n_latam_document_type_id.code == '07'">la NOTA DE CRÉDITO ELECTRÓNICA</span>
+                        <span t-elif="o.l10n_latam_document_type_id.code == '08'">la NOTA DE DÉBITO ELECTRÓNICA</span>
+                    </strong>
+                    <div t-if="o.l10n_pe_edi_state" class="mt-1">
+                        Estado SUNAT:
+                        <span t-field="o.l10n_pe_edi_state"/>
+                    </div>
+                    <div t-if="o.l10n_pe_edi_hash" class="text-muted small">
+                        Hash: <span t-field="o.l10n_pe_edi_hash"/>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>

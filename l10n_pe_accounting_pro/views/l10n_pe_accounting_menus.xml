@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_config_settings" model="ir.actions.act_window">
+        <field name="name">Ajustes</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module': 'l10n_pe_accounting_pro'}</field>
+    </record>
+
+    <menuitem id="menu_l10n_pe_accounting_root" name="Contabilidad Perú"
+              groups="l10n_pe_accounting_pro.group_l10n_pe_accounting_user" sequence="16"/>
+
+    <menuitem id="menu_l10n_pe_accounting_detraction_root" name="Detracciones"
+              parent="menu_l10n_pe_accounting_root" sequence="10"/>
+    <menuitem id="menu_l10n_pe_accounting_detraction" name="Detracciones"
+              parent="menu_l10n_pe_accounting_detraction_root" action="action_detraction" sequence="10"/>
+    <menuitem id="menu_l10n_pe_accounting_detraction_category" name="Categorías SPOT"
+              parent="menu_l10n_pe_accounting_detraction_root" action="action_detraction_category"
+              sequence="20" groups="l10n_pe_accounting_pro.group_l10n_pe_accounting_manager"/>
+
+    <menuitem id="menu_l10n_pe_accounting_retention_perception_root" name="Retenciones / Percepciones"
+              parent="menu_l10n_pe_accounting_root" sequence="20"/>
+    <menuitem id="menu_l10n_pe_accounting_retention" name="Retenciones de IGV"
+              parent="menu_l10n_pe_accounting_retention_perception_root" action="action_retention"
+              sequence="10"/>
+    <menuitem id="menu_l10n_pe_accounting_perception" name="Percepciones de IGV"
+              parent="menu_l10n_pe_accounting_retention_perception_root" action="action_perception"
+              sequence="20"/>
+
+    <menuitem id="menu_l10n_pe_accounting_ple_root" name="PLE (Compras / Ventas)"
+              parent="menu_l10n_pe_accounting_root" sequence="30"/>
+    <menuitem id="menu_l10n_pe_accounting_ple_purchase" name="Registro de Compras"
+              parent="menu_l10n_pe_accounting_ple_root" action="action_ple_purchase" sequence="10"/>
+    <menuitem id="menu_l10n_pe_accounting_ple_sale" name="Registro de Ventas e Ingresos"
+              parent="menu_l10n_pe_accounting_ple_root" action="action_ple_sale" sequence="20"/>
+    <menuitem id="menu_l10n_pe_accounting_ple_export" name="Exportar TXT"
+              parent="menu_l10n_pe_accounting_ple_root" action="action_ple_export_wizard" sequence="30"/>
+
+    <menuitem id="menu_l10n_pe_accounting_asset_root" name="Activos Fijos"
+              parent="menu_l10n_pe_accounting_root" sequence="40"/>
+    <menuitem id="menu_l10n_pe_accounting_asset" name="Activos"
+              parent="menu_l10n_pe_accounting_asset_root"
+              action="action_asset" sequence="10"/>
+    <menuitem id="menu_l10n_pe_accounting_asset_tax_category" name="Categorías Tributarias (SUNAT)"
+              parent="menu_l10n_pe_accounting_asset_root" action="action_asset_tax_category"
+              sequence="20" groups="l10n_pe_accounting_pro.group_l10n_pe_accounting_manager"/>
+
+    <menuitem id="menu_l10n_pe_accounting_closing_root" name="Cierre Contable"
+              parent="menu_l10n_pe_accounting_root" sequence="50"/>
+    <menuitem id="menu_l10n_pe_accounting_closing_wizard" name="Asistente de Cierre"
+              parent="menu_l10n_pe_accounting_closing_root" action="action_closing_wizard" sequence="10"/>
+
+    <menuitem id="menu_l10n_pe_accounting_reports_root" name="Estados Financieros"
+              parent="menu_l10n_pe_accounting_root" sequence="60"/>
+    <menuitem id="menu_l10n_pe_accounting_financial_report_wizard" name="Generar Estado Financiero"
+              parent="menu_l10n_pe_accounting_reports_root" action="action_financial_report_wizard"
+              sequence="10"/>
+    <menuitem id="menu_l10n_pe_accounting_financial_report_line" name="Plantillas"
+              parent="menu_l10n_pe_accounting_reports_root" action="action_financial_report_line"
+              sequence="20" groups="l10n_pe_accounting_pro.group_l10n_pe_accounting_manager"/>
+
+    <menuitem id="menu_l10n_pe_accounting_plame_root" name="PLAME / T-Registro"
+              parent="menu_l10n_pe_accounting_root" sequence="70"/>
+    <menuitem id="menu_l10n_pe_accounting_plame_worker" name="Trabajadores"
+              parent="menu_l10n_pe_accounting_plame_root" action="action_plame_worker" sequence="10"/>
+    <menuitem id="menu_l10n_pe_accounting_plame_period" name="Periodos"
+              parent="menu_l10n_pe_accounting_plame_root" action="action_plame_period" sequence="20"/>
+
+    <menuitem id="menu_l10n_pe_accounting_config_root" name="Configuración"
+              parent="menu_l10n_pe_accounting_root" sequence="90"
+              groups="l10n_pe_accounting_pro.group_l10n_pe_accounting_manager"/>
+    <menuitem id="menu_l10n_pe_accounting_settings" name="Ajustes"
+              parent="menu_l10n_pe_accounting_config_root" action="action_config_settings" sequence="10"/>
+</odoo>

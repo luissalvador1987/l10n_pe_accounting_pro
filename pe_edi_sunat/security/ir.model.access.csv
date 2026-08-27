@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_pe_edi_certificate_manager,pe.edi.certificate.manager,model_pe_edi_certificate,group_pe_edi_manager,1,1,1,1
+access_pe_edi_certificate_user,pe.edi.certificate.user,model_pe_edi_certificate,group_pe_edi_user,1,0,0,0
+access_pe_edi_log_manager,pe.edi.log.manager,model_pe_edi_log,group_pe_edi_manager,1,1,1,1
+access_pe_edi_log_user,pe.edi.log.user,model_pe_edi_log,group_pe_edi_user,1,0,0,0
+access_pe_edi_despatch_user,pe.edi.despatch.user,model_pe_edi_despatch,group_pe_edi_user,1,1,1,0
+access_pe_edi_despatch_manager,pe.edi.despatch.manager,model_pe_edi_despatch,group_pe_edi_manager,1,1,1,1
+access_pe_edi_despatch_line_user,pe.edi.despatch.line.user,model_pe_edi_despatch_line,group_pe_edi_user,1,1,1,1

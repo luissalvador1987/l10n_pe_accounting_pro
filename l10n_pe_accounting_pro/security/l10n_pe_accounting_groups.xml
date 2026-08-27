@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="module_category_l10n_pe_accounting" model="ir.module.category">
+        <field name="name">Contabilidad Perú</field>
+        <field name="sequence">16</field>
+    </record>
+
+    <record id="group_l10n_pe_accounting_user" model="res.groups">
+        <field name="name">Contador</field>
+        <field name="category_id" ref="module_category_l10n_pe_accounting"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        <field name="comment">Registra detracciones, retenciones/percepciones, genera el PLE y usa el
+            asistente de cierre. No puede cambiar la configuración tributaria de la empresa.</field>
+    </record>
+
+    <record id="group_l10n_pe_accounting_manager" model="res.groups">
+        <field name="name">Contador Jefe / Administrador</field>
+        <field name="category_id" ref="module_category_l10n_pe_accounting"/>
+        <field name="implied_ids" eval="[(4, ref('group_l10n_pe_accounting_user')), (4, ref('base.group_system'))]"/>
+        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+        <field name="comment">Configura el régimen tributario, agente de retención/percepción, tasas y
+            catálogos de detracción, y aprueba el cierre contable.</field>
+    </record>
+</odoo>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_perception_received_wizard_form" model="ir.ui.view">
+        <field name="name">l10n_pe_accounting.perception.received.wizard.form</field>
+        <field name="model">l10n_pe_accounting.perception.received.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="move_id" invisible="1"/>
+                    <field name="partner_id" readonly="1"/>
+                    <field name="base_amount"/>
+                    <field name="rate"/>
+                    <field name="reclass_account_id"/>
+                </group>
+                <footer>
+                    <button string="Confirmar" type="object" name="action_confirm" class="btn-primary"/>
+                    <button string="Cancelar" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_perception_received_wizard" model="ir.actions.act_window">
+        <field name="name">Registrar percepción sufrida</field>
+        <field name="res_model">l10n_pe_accounting.perception.received.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

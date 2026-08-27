@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_pe_edi_certificate_list" model="ir.ui.view">
+        <field name="name">pe.edi.certificate.list</field>
+        <field name="model">pe.edi.certificate</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="subject_cn"/>
+                <field name="date_end"/>
+                <field name="is_test"/>
+                <field name="state" widget="badge" decoration-success="state == 'valid'"
+                       decoration-danger="state in ('expired', 'error')"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_pe_edi_certificate_form" model="ir.ui.view">
+        <field name="name">pe.edi.certificate.form</field>
+        <field name="model">pe.edi.certificate</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_validate" type="object" string="Validar certificado" class="btn-primary"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,valid"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="company_id"/>
+                            <field name="pfx_file" filename="pfx_filename"/>
+                            <field name="pfx_filename" invisible="1"/>
+                            <field name="password" password="True" groups="pe_edi_sunat.group_pe_edi_manager"/>
+                            <field name="is_test"/>
+                        </group>
+                        <group>
+                            <field name="subject_cn"/>
+                            <field name="issuer_cn"/>
+                            <field name="serial_number"/>
+                            <field name="date_start"/>
+                            <field name="date_end"/>
+                        </group>
+                    </group>
+                    <group string="Error" invisible="not error_message">
+                        <field name="error_message" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_pe_edi_certificate" model="ir.actions.act_window">
+        <field name="name">Certificados digitales</field>
+        <field name="res_model">pe.edi.certificate</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Carga tu certificado digital (.pfx/.p12)</p>
+            <p>Para Beta puedes usar uno autofirmado; para Producción, SUNAT exige uno vigente emitido por
+               una entidad certificadora autorizada.</p>
+        </field>
+    </record>
+</odoo>

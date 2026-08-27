@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="0">
+    <!--
+        Catálogo de referencia de bienes/servicios sujetos al SPOT (detracciones), con los códigos y
+        porcentajes más comunes vigentes en los últimos ejercicios (Anexos 1/2/3 de la R.S.
+        183-2004/SUNAT y modificatorias). SUNAT ajusta estos porcentajes de tanto en tanto: antes de
+        depender de este catálogo en producción, verifica el Anexo vigente.
+    -->
+    <record id="detraction_cat_001" model="l10n_pe_accounting.detraction.category">
+        <field name="code">001</field>
+        <field name="name">Azúcar y melaza de caña</field>
+        <field name="anexo">2</field>
+        <field name="percentage">10.0</field>
+    </record>
+    <record id="detraction_cat_003" model="l10n_pe_accounting.detraction.category">
+        <field name="code">003</field>
+        <field name="name">Alcohol etílico</field>
+        <field name="anexo">2</field>
+        <field name="percentage">10.0</field>
+    </record>
+    <record id="detraction_cat_004" model="l10n_pe_accounting.detraction.category">
+        <field name="code">004</field>
+        <field name="name">Recursos hidrobiológicos</field>
+        <field name="anexo">2</field>
+        <field name="percentage">4.0</field>
+    </record>
+    <record id="detraction_cat_005" model="l10n_pe_accounting.detraction.category">
+        <field name="code">005</field>
+        <field name="name">Maíz amarillo duro</field>
+        <field name="anexo">2</field>
+        <field name="percentage">4.0</field>
+    </record>
+    <record id="detraction_cat_006" model="l10n_pe_accounting.detraction.category">
+        <field name="code">007</field>
+        <field name="name">Caña de azúcar</field>
+        <field name="anexo">2</field>
+        <field name="percentage">10.0</field>
+    </record>
+    <record id="detraction_cat_008" model="l10n_pe_accounting.detraction.category">
+        <field name="code">008</field>
+        <field name="name">Madera</field>
+        <field name="anexo">2</field>
+        <field name="percentage">4.0</field>
+    </record>
+    <record id="detraction_cat_009" model="l10n_pe_accounting.detraction.category">
+        <field name="code">009</field>
+        <field name="name">Arena y piedra</field>
+        <field name="anexo">2</field>
+        <field name="percentage">10.0</field>
+    </record>
+    <record id="detraction_cat_010" model="l10n_pe_accounting.detraction.category">
+        <field name="code">010</field>
+        <field name="name">Residuos, subproductos, desechos, recortes y desperdicios</field>
+        <field name="anexo">2</field>
+        <field name="percentage">15.0</field>
+    </record>
+    <record id="detraction_cat_014" model="l10n_pe_accounting.detraction.category">
+        <field name="code">014</field>
+        <field name="name">Oro y demás minerales metálicos</field>
+        <field name="anexo">2</field>
+        <field name="percentage">10.0</field>
+    </record>
+    <record id="detraction_cat_017" model="l10n_pe_accounting.detraction.category">
+        <field name="code">017</field>
+        <field name="name">Minerales no metálicos</field>
+        <field name="anexo">2</field>
+        <field name="percentage">10.0</field>
+    </record>
+    <record id="detraction_cat_019" model="l10n_pe_accounting.detraction.category">
+        <field name="code">019</field>
+        <field name="name">Arrendamiento de bienes muebles e inmuebles</field>
+        <field name="anexo">3</field>
+        <field name="percentage">10.0</field>
+    </record>
+    <record id="detraction_cat_020" model="l10n_pe_accounting.detraction.category">
+        <field name="code">020</field>
+        <field name="name">Mantenimiento y reparación de bienes muebles</field>
+        <field name="anexo">3</field>
+        <field name="percentage">12.0</field>
+    </record>
+    <record id="detraction_cat_021" model="l10n_pe_accounting.detraction.category">
+        <field name="code">021</field>
+        <field name="name">Movimiento de carga</field>
+        <field name="anexo">3</field>
+        <field name="percentage">10.0</field>
+    </record>
+    <record id="detraction_cat_022" model="l10n_pe_accounting.detraction.category">
+        <field name="code">022</field>
+        <field name="name">Otros servicios empresariales</field>
+        <field name="anexo">3</field>
+        <field name="percentage">12.0</field>
+    </record>
+    <record id="detraction_cat_024" model="l10n_pe_accounting.detraction.category">
+        <field name="code">024</field>
+        <field name="name">Comisión mercantil</field>
+        <field name="anexo">3</field>
+        <field name="percentage">10.0</field>
+    </record>
+    <record id="detraction_cat_025" model="l10n_pe_accounting.detraction.category">
+        <field name="code">025</field>
+        <field name="name">Fabricación por encargo</field>
+        <field name="anexo">3</field>
+        <field name="percentage">10.0</field>
+    </record>
+    <record id="detraction_cat_026" model="l10n_pe_accounting.detraction.category">
+        <field name="code">026</field>
+        <field name="name">Servicio de transporte de bienes por vía terrestre</field>
+        <field name="anexo">3</field>
+        <field name="percentage">4.0</field>
+    </record>
+    <record id="detraction_cat_030" model="l10n_pe_accounting.detraction.category">
+        <field name="code">030</field>
+        <field name="name">Contratos de construcción</field>
+        <field name="anexo">3</field>
+        <field name="percentage">4.0</field>
+    </record>
+    <record id="detraction_cat_037" model="l10n_pe_accounting.detraction.category">
+        <field name="code">037</field>
+        <field name="name">Demás servicios gravados con el IGV</field>
+        <field name="anexo">3</field>
+        <field name="percentage">12.0</field>
+    </record>
+    <record id="detraction_cat_039" model="l10n_pe_accounting.detraction.category">
+        <field name="code">039</field>
+        <field name="name">Intermediación laboral y tercerización</field>
+        <field name="anexo">3</field>
+        <field name="percentage">10.0</field>
+    </record>
+</odoo>

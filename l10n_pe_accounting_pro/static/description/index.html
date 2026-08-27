@@ -1,0 +1,105 @@
+<section class="oe_container">
+    <div class="oe_row oe_spaced" style="text-align:center;">
+        <img src="banner.png" style="max-width:100%; border-radius: 8px;" alt="Contabilidad Perú Avanzada"/>
+    </div>
+</section>
+
+<section class="oe_container">
+    <h2 class="oe_slogan">Contabilidad Perú Avanzada (SUNAT Pro)</h2>
+    <h3 class="oe_slogan" style="font-weight:normal; color:#6e6e6e;">
+        PLE · Detracciones · Retenciones y Percepciones de IGV · Activos Fijos NIIF/SUNAT ·
+        Cierre contable asistido · Estados Financieros NIIF · PLAME/T-Registro
+    </h3>
+    <div class="oe_span12">
+        <p class="oe_mt32" style="font-size:15px; line-height:1.6;">
+            Este módulo agrega, sobre la localización peruana estándar de Odoo 18 y el módulo de
+            facturación electrónica SUNAT, todo lo que un estudio contable o el área de contabilidad
+            de una empresa peruana necesita día a día y que la localización base normalmente no cubre
+            de forma integrada.
+        </p>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <img src="feature_1.png" style="max-width:100%; border-radius: 8px;"
+             alt="Cumplimiento SUNAT al día"/>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <img src="feature_2.png" style="max-width:100%; border-radius: 8px;"
+             alt="Activos fijos NIIF y SUNAT a la vez"/>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced">
+        <img src="feature_3.png" style="max-width:100%; border-radius: 8px;"
+             alt="Cierre contable y Estados Financieros NIIF"/>
+    </div>
+</section>
+
+<section class="oe_container">
+    <h3 class="oe_slogan" style="text-align:left;">¿Qué incluye exactamente?</h3>
+    <div class="oe_span12">
+        <ul style="font-size:14px; line-height:1.8;">
+            <li><b>Registro de Compras y Registro de Ventas e Ingresos (PLE)</b>: se completa solo
+                al contabilizar cada factura/boleta, exportable al formato TXT clásico de PLE.</li>
+            <li><b>Detracciones (SPOT)</b>: catálogo de bienes/servicios sujetos a detracción con sus
+                porcentajes (Anexos 1/2/3), cálculo automático sobre el comprobante, registro manual
+                de la constancia de depósito.</li>
+            <li><b>Retenciones y Percepciones de IGV</b>: para Agentes de Retención (retiene 3% al
+                pagar a proveedores) y de Percepción (percibe 0.5%/1%/2% al vender), en ambas
+                direcciones — emitidas y sufridas — con comprobantes numerados y asientos conciliados.</li>
+            <li><b>Activos fijos con depreciación dual NIIF vs. SUNAT</b>: dos cronogramas de
+                depreciación en paralelo (contable y tributario con las tasas máximas del Art. 22 del
+                Reglamento de la LIR), con el impuesto a la renta diferido calculado automáticamente.</li>
+            <li><b>Cierre contable asistido</b>: provisión de CTS/gratificaciones/vacaciones y ajuste
+                por diferencia de cambio de las cuentas en moneda extranjera abiertas.</li>
+            <li><b>Estados Financieros NIIF</b>: Estado de Situación Financiera y Estado de Resultados
+                armados sobre el plan de cuentas PCGE, más una versión base de Flujo de Efectivo y
+                Cambios en el Patrimonio.</li>
+            <li><b>Ayuda de exportación PLAME/T-Registro</b>: censo básico de trabajadores y
+                agregador de conceptos remunerativos por periodo.</li>
+        </ul>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <h3 class="oe_slogan" style="text-align:left;">Requisitos</h3>
+    <div class="oe_span12">
+        <ul style="font-size:14px; line-height:1.8;">
+            <li>Odoo 18.0 (Community o Enterprise).</li>
+            <li>Localización peruana <code>l10n_pe</code> (incluida en Odoo).</li>
+            <li>Módulo de facturación electrónica SUNAT <code>pe_edi_sunat</code> (del mismo
+                publicador), del cual este módulo extiende la información de comprobantes.</li>
+        </ul>
+    </div>
+</section>
+
+<section class="oe_container">
+    <h3 class="oe_slogan" style="text-align:left;">Notas importantes de honestidad técnica</h3>
+    <div class="oe_span12">
+        <ul style="font-size:14px; line-height:1.8;">
+            <li><b>SIRE</b>: este módulo genera el TXT clásico de PLE como respaldo interno; no envía
+                nada directamente al API de SIRE (que SUNAT viene usando desde 2024 para el Registro
+                de Ventas/Compras de la mayoría de contribuyentes).</li>
+            <li><b>DAOT</b>: no se incluye — está derogada desde el ejercicio 2018.</li>
+            <li><b>PLAME</b>: la estructura exacta del registro cambia de tanto en tanto; verifica la
+                versión vigente publicada por SUNAT/MTPE antes de usar el archivo exportado en
+                producción.</li>
+            <li>Los porcentajes de detracción/retención/percepción deben verificarse contra la norma
+                vigente para tu caso antes de activar el cálculo automático en producción.</li>
+        </ul>
+    </div>
+</section>
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced" style="text-align:center;">
+        <p style="font-size:13px; color:#6e6e6e;">
+            Soporte: luissalvador1987@gmail.com
+        </p>
+    </div>
+</section>

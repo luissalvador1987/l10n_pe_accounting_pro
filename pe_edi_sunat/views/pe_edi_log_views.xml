@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_pe_edi_log_list" model="ir.ui.view">
+        <field name="name">pe.edi.log.list</field>
+        <field name="model">pe.edi.log</field>
+        <field name="arch" type="xml">
+            <list default_order="id desc" create="0" edit="0">
+                <field name="create_date"/>
+                <field name="res_model"/>
+                <field name="res_id"/>
+                <field name="operation"/>
+                <field name="success" widget="boolean_toggle"/>
+                <field name="message"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_pe_edi_log" model="ir.actions.act_window">
+        <field name="name">Registro técnico SUNAT</field>
+        <field name="res_model">pe.edi.log</field>
+        <field name="view_mode">list</field>
+    </record>
+</odoo>

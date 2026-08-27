@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_perception_list" model="ir.ui.view">
+        <field name="name">l10n_pe_accounting.perception.list</field>
+        <field name="model">l10n_pe_accounting.perception</field>
+        <field name="arch" type="xml">
+            <list decoration-muted="state == 'cancelled'">
+                <field name="number"/>
+                <field name="date"/>
+                <field name="direction"/>
+                <field name="partner_id"/>
+                <field name="perception_amount"/>
+                <field name="state" widget="badge" decoration-success="state == 'posted'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_perception_form" model="ir.ui.view">
+        <field name="name">l10n_pe_accounting.perception.form</field>
+        <field name="model">l10n_pe_accounting.perception</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,posted"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="number" readonly="1"/>
+                            <field name="direction"/>
+                            <field name="date"/>
+                            <field name="partner_id"/>
+                            <field name="invoice_id"/>
+                        </group>
+                        <group>
+                            <field name="base_amount"/>
+                            <field name="rate"/>
+                            <field name="perception_amount"/>
+                            <field name="reclass_account_id" invisible="direction != 'received'"/>
+                            <field name="move_id" readonly="1" invisible="direction != 'received'"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_perception" model="ir.actions.act_window">
+        <field name="name">Percepciones de IGV</field>
+        <field name="res_model">l10n_pe_accounting.perception</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

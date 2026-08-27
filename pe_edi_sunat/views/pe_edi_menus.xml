@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_pe_edi_config" model="ir.actions.act_window">
+        <field name="name">Ajustes</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module': 'pe_edi_sunat'}</field>
+    </record>
+
+    <menuitem id="menu_pe_edi_root" name="Facturación Electrónica SUNAT"
+              groups="pe_edi_sunat.group_pe_edi_user" sequence="15"/>
+
+    <menuitem id="menu_pe_edi_despatch" name="Guías de Remisión" parent="menu_pe_edi_root"
+              action="action_pe_edi_despatch" sequence="10"/>
+
+    <menuitem id="menu_pe_edi_config_root" name="Configuración" parent="menu_pe_edi_root" sequence="90"
+              groups="pe_edi_sunat.group_pe_edi_manager"/>
+    <menuitem id="menu_pe_edi_certificate" name="Certificados digitales" parent="menu_pe_edi_config_root"
+              action="action_pe_edi_certificate" sequence="10"/>
+    <menuitem id="menu_pe_edi_log" name="Registro técnico" parent="menu_pe_edi_config_root"
+              action="action_pe_edi_log" sequence="20"/>
+    <menuitem id="menu_pe_edi_settings" name="Ajustes" parent="menu_pe_edi_config_root"
+              action="action_pe_edi_config" sequence="30"/>
+</odoo>

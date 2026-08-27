@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_retention_pay_wizard_form" model="ir.ui.view">
+        <field name="name">l10n_pe_accounting.retention.pay.wizard.form</field>
+        <field name="model">l10n_pe_accounting.retention.pay.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="move_id" invisible="1"/>
+                    <field name="partner_id" readonly="1"/>
+                    <field name="base_amount"/>
+                    <field name="rate"/>
+                    <field name="retention_amount" readonly="1"/>
+                </group>
+                <p class="text-muted">Se generará el comprobante de retención y un asiento que baja el
+                    saldo pendiente del comprobante en el monto retenido. Luego se abrirá el asistente
+                    de Registrar Pago para el neto restante.</p>
+                <footer>
+                    <button string="Confirmar" type="object" name="action_confirm" class="btn-primary"/>
+                    <button string="Cancelar" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_retention_pay_wizard" model="ir.actions.act_window">
+        <field name="name">Aplicar retención IGV y pagar</field>
+        <field name="res_model">l10n_pe_accounting.retention.pay.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

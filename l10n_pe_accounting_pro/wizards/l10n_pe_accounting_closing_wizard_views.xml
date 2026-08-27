@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_closing_wizard_form" model="ir.ui.view">
+        <field name="name">l10n_pe_accounting.closing.wizard.form</field>
+        <field name="model">l10n_pe_accounting.closing.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                    <field name="period" placeholder="202601"/>
+                    <field name="date"/>
+                </group>
+                <notebook>
+                    <page string="Provisión CTS">
+                        <group>
+                            <field name="cts_base_amount"/>
+                            <field name="cts_expense_account_id"/>
+                            <field name="cts_payable_account_id"/>
+                        </group>
+                        <button string="Provisionar CTS (1/12)" type="object"
+                                name="action_provision_cts" class="btn-secondary"/>
+                    </page>
+                    <page string="Provisión Gratificación">
+                        <group>
+                            <field name="gratification_base_amount"/>
+                            <field name="gratification_expense_account_id"/>
+                            <field name="gratification_payable_account_id"/>
+                        </group>
+                        <button string="Provisionar Gratificación (1/6)" type="object"
+                                name="action_provision_gratification" class="btn-secondary"/>
+                    </page>
+                    <page string="Provisión Vacaciones">
+                        <group>
+                            <field name="vacation_base_amount"/>
+                            <field name="vacation_expense_account_id"/>
+                            <field name="vacation_payable_account_id"/>
+                        </group>
+                        <button string="Provisionar Vacaciones (1/12)" type="object"
+                                name="action_provision_vacation" class="btn-secondary"/>
+                    </page>
+                    <page string="Diferencia de Cambio">
+                        <p class="text-muted">Revalúa las cuentas por cobrar/pagar en moneda extranjera
+                            que sigan abiertas a esta fecha, usando las cuentas de ganancia/pérdida por
+                            diferencia de cambio configuradas en Contabilidad > Configuración.</p>
+                        <button string="Ajustar diferencia de cambio" type="object"
+                                name="action_adjust_exchange_difference" class="btn-secondary"/>
+                    </page>
+                </notebook>
+                <footer>
+                    <button string="Cerrar" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_closing_wizard" model="ir.actions.act_window">
+        <field name="name">Asistente de Cierre Contable</field>
+        <field name="res_model">l10n_pe_accounting.closing.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

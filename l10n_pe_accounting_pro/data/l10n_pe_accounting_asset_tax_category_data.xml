@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="0">
+    <!-- Tasas máximas de depreciación tributaria, Art. 22 del Reglamento de la Ley del Impuesto a la
+         Renta. Verifica regímenes especiales/temporales vigentes (p.ej. edificaciones con depreciación
+         acelerada de la Ley 31107) antes de aplicar en un caso concreto. -->
+    <record id="asset_tax_cat_buildings" model="l10n_pe_accounting.asset.tax.category">
+        <field name="name">Edificios y construcciones</field>
+        <field name="max_annual_rate">5.0</field>
+        <field name="note">Línea recta obligatoria. Revisa si aplica algún régimen temporal de
+            depreciación acelerada (p.ej. Ley 31107) para el bien concreto.</field>
+    </record>
+    <record id="asset_tax_cat_livestock" model="l10n_pe_accounting.asset.tax.category">
+        <field name="name">Ganado de trabajo y reproducción; redes de pesca</field>
+        <field name="max_annual_rate">25.0</field>
+    </record>
+    <record id="asset_tax_cat_vehicles" model="l10n_pe_accounting.asset.tax.category">
+        <field name="name">Vehículos de transporte terrestre (excepto ferrocarriles); hornos en general</field>
+        <field name="max_annual_rate">20.0</field>
+    </record>
+    <record id="asset_tax_cat_heavy_machinery" model="l10n_pe_accounting.asset.tax.category">
+        <field name="name">Maquinaria y equipo de las actividades minera, petrolera y de construcción
+            (excepto muebles, enseres y equipos de oficina)</field>
+        <field name="max_annual_rate">20.0</field>
+    </record>
+    <record id="asset_tax_cat_computers" model="l10n_pe_accounting.asset.tax.category">
+        <field name="name">Equipos de procesamiento de datos (cómputo)</field>
+        <field name="max_annual_rate">25.0</field>
+    </record>
+    <record id="asset_tax_cat_machinery" model="l10n_pe_accounting.asset.tax.category">
+        <field name="name">Maquinaria y equipo (adquiridos desde el 01/01/1991)</field>
+        <field name="max_annual_rate">10.0</field>
+    </record>
+    <record id="asset_tax_cat_other" model="l10n_pe_accounting.asset.tax.category">
+        <field name="name">Otros bienes del activo fijo (muebles, enseres, equipos de oficina, etc.)</field>
+        <field name="max_annual_rate">10.0</field>
+    </record>
+</odoo>

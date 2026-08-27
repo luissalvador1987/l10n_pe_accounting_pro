@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_partner_form_l10n_pe_accounting" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit.l10n.pe.accounting.pro</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Retenciones / Percepciones (Perú)" name="l10n_pe_accounting">
+                    <group>
+                        <group string="Como proveedor">
+                            <field name="l10n_pe_retention_excluded"/>
+                        </group>
+                        <group string="Como cliente">
+                            <field name="l10n_pe_perception_excluded"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="l10n_pe_is_withholding_agent"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="module_category_pe_edi" model="ir.module.category">
+        <field name="name">Facturación Electrónica SUNAT</field>
+        <field name="sequence">20</field>
+    </record>
+
+    <!-- Only this group can see/edit certificate passwords, SOL credentials
+         and GRE OAuth2 secrets. Implied by Accounting Administrator so a
+         normal invoicing user cannot read these secrets. -->
+    <record id="group_pe_edi_manager" model="res.groups">
+        <field name="name">Administrador de Facturación Electrónica</field>
+        <field name="category_id" ref="module_category_pe_edi"/>
+        <field name="implied_ids" eval="[(4, ref('account.group_account_manager'))]"/>
+        <field name="comment">Puede configurar el certificado digital, las credenciales SOL/GRE y reintentar envíos a SUNAT.</field>
+    </record>
+
+    <record id="group_pe_edi_user" model="res.groups">
+        <field name="name">Usuario de Facturación Electrónica</field>
+        <field name="category_id" ref="module_category_pe_edi"/>
+        <field name="implied_ids" eval="[(4, ref('account.group_account_invoice'))]"/>
+        <field name="comment">Puede emitir y consultar comprobantes electrónicos, sin ver credenciales sensibles.</field>
+    </record>
+
+    <record id="group_pe_edi_manager" model="res.groups">
+        <field name="implied_ids" eval="[(4, ref('group_pe_edi_user'))]"/>
+    </record>
+</odoo>

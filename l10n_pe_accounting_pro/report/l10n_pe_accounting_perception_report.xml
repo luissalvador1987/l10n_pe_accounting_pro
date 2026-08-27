@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_report_perception" model="ir.actions.report">
+        <field name="name">Comprobante de Percepción</field>
+        <field name="model">l10n_pe_accounting.perception</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">l10n_pe_accounting_pro.report_perception_document</field>
+        <field name="report_file">l10n_pe_accounting_pro.report_perception_document</field>
+        <field name="binding_model_id" ref="model_l10n_pe_accounting_perception"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="report_perception_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2>Comprobante de Percepción N° <span t-field="o.number"/></h2>
+                        <p>Fecha: <span t-field="o.date"/></p>
+                        <p>Cliente: <span t-field="o.partner_id.name"/> -
+                            <span t-field="o.partner_id.vat"/></p>
+                        <table class="table table-sm">
+                            <tr><td>Importe de la operación (con IGV)</td>
+                                <td class="text-end"><span t-field="o.base_amount"/></td></tr>
+                            <tr><td>Tasa</td><td class="text-end"><span t-field="o.rate"/>%</td></tr>
+                            <tr class="fw-bold"><td>Monto percibido</td>
+                                <td class="text-end"><span t-field="o.perception_amount"/></td></tr>
+                        </table>
+                        <p invisible="not o.invoice_id">Comprobante: <span t-field="o.invoice_id.name"/></p>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

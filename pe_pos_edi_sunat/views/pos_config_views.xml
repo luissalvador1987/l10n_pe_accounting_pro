@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="pos_config_view_form_l10n_pe_edi" model="ir.ui.view">
+        <field name="name">pos.config.form.l10n.pe.edi</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+        <field name="arch" type="xml">
+            <div id="restaurant_on_create" position="after">
+                <field name="l10n_pe_edi_country_code" invisible="1"/>
+                <div class="row mt16 o_settings_container" invisible="l10n_pe_edi_country_code != 'PE'">
+                    <setting id="l10n_pe_edi_setting" string="Facturación Electrónica SUNAT"
+                             help="Cada venta de este Punto de Venta emitirá Boleta o Factura Electrónica ante SUNAT automáticamente al cobrar.">
+                        <div class="content-group">
+                            <div class="row">
+                                <label for="l10n_pe_edi_boleta_journal_id" class="col-lg-5 o_light_label"/>
+                                <field name="l10n_pe_edi_boleta_journal_id" class="col-lg-7"/>
+                            </div>
+                            <div class="row">
+                                <label for="l10n_pe_edi_factura_journal_id" class="col-lg-5 o_light_label"/>
+                                <field name="l10n_pe_edi_factura_journal_id" class="col-lg-7"/>
+                            </div>
+                            <div class="row">
+                                <label for="l10n_pe_edi_default_partner_id" class="col-lg-5 o_light_label"/>
+                                <field name="l10n_pe_edi_default_partner_id" class="col-lg-7"/>
+                            </div>
+                            <div class="row">
+                                <field name="l10n_pe_edi_auto_send" class="col-lg-1"/>
+                                <label for="l10n_pe_edi_auto_send" class="col-lg-11 o_light_label"/>
+                            </div>
+                        </div>
+                    </setting>
+                </div>
+            </div>
+        </field>
+    </record>
+</odoo>

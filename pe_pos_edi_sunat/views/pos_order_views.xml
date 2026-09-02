@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_pos_pos_form_l10n_pe_edi" model="ir.ui.view">
+        <field name="name">pos.order.form.l10n.pe.edi</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+        <field name="arch" type="xml">
+            <button name="refund" position="after">
+                <button name="action_l10n_pe_edi_retry_send" string="Reintentar envío SUNAT" type="object"
+                        invisible="not l10n_pe_edi_state or l10n_pe_edi_state in ('sent', 'accepted')"/>
+            </button>
+            <field name="has_refundable_lines" position="after">
+                <field name="l10n_pe_edi_state" invisible="not l10n_pe_edi_state" widget="badge"
+                       decoration-success="l10n_pe_edi_state == 'accepted'"
+                       decoration-danger="l10n_pe_edi_state in ('error', 'rejected')"
+                       decoration-info="l10n_pe_edi_state in ('to_send', 'sent')"/>
+            </field>
+            <group name="order_fields" position="inside">
+                <field name="l10n_pe_edi_document_number" invisible="not l10n_pe_edi_document_number"/>
+                <field name="l10n_pe_edi_error_message" invisible="not l10n_pe_edi_error_message"/>
+            </group>
+        </field>
+    </record>
+</odoo>

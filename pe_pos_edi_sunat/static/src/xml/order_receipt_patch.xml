@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="pe_pos_edi_sunat.OrderReceipt" t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('before-footer')]" position="after">
+            <div t-if="props.data.l10n_pe_edi_document_number" class="pos-receipt-center-align">
+                <div class="pos-receipt-order-data">
+                    Comprobante SUNAT: <t t-esc="props.data.l10n_pe_edi_document_number"/>
+                </div>
+                <div t-if="props.data.l10n_pe_edi_qr_image" class="mb-2">
+                    <img t-attf-src="data:image/png;base64,{{props.data.l10n_pe_edi_qr_image}}" class="pos-receipt-logo"/>
+                </div>
+                <div class="pos-receipt-order-data" t-if="props.data.l10n_pe_edi_state !== 'accepted'">
+                    (Aún no confirmado por SUNAT — conserva este ticket)
+                </div>
+                <div class="pos-receipt-order-data" t-else="">
+                    Representación impresa del comprobante electrónico. Consulta: www.sunat.gob.pe
+                </div>
+            </div>
+        </xpath>
+    </t>
+</templates>

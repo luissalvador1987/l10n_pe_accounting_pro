@@ -64,7 +64,7 @@ Notas importantes de honestidad técnica (para que sepas exactamente qué automa
     'support': "luissalvador1987@gmail.com",
     'license': 'OPL-1',
     'price': 100.0,
-    'currency': 'EUR',
+    'currency': 'USD',
     'images': ['static/description/banner.png'],
     'depends': ['l10n_pe', 'pe_edi_sunat', 'account', 'mail'],
     'data': [

@@ -34,8 +34,23 @@ cubren completo:
 * **Ayuda de exportación PLAME/T-Registro**: censo básico de trabajadores y agregador de conceptos
   remunerativos por periodo, exportado en la estructura de registro que exige el PDT Planilla
   Electrónica (no reemplaza el PDT, que es un programa aparte de SUNAT/MTPE).
+* **Menú de Contabilidad completo**: agrega a Contabilidad > Configuración las pantallas de
+  Extractos bancarios, Cajas Registradoras, Grupos de cuentas y Etiquetas de cuenta — ya vienen
+  100% funcionando en Odoo 18 (modelo, vistas y lógica reales, no una versión reducida), solo les
+  faltaba el ítem de menú para llegar sin entrar a Modo Desarrollador.
 
 Notas importantes de honestidad técnica (para que sepas exactamente qué automatiza esto y qué no):
+
+* **"Plantillas" de plan de cuentas / cuenta / impuesto / posición fiscal**: si buscás estas cuatro
+  pantallas tal como existían en Odoo 13-16, no están porque **ya no existen en Odoo 17+, en
+  ninguna edición** — no es un límite de Community. Desde ese rediseño, cada localización (como
+  ``l10n_pe``) define su plan de cuentas con código Python (``account.chart.template``, un
+  registro de métodos, sin registros de base de datos para navegar), y los modelos
+  ``account.account.template`` / ``account.tax.template`` / ``account.fiscal.position.template``
+  se eliminaron del todo. Lo que sí seguís pudiendo administrar por completo, con pantalla propia,
+  son las cuentas, impuestos y posiciones fiscales *reales* ya cargadas (Contabilidad >
+  Configuración > Plan de Contable / Impuestos / Posiciones Fiscales, ya nativas) — la única parte
+  que dejó de existir es la de "plantilla" reusable para crear otro plan de cuentas desde cero.
 
 * **SIRE**: desde 2024 SUNAT viene migrando el Registro de Ventas e Ingresos (RVIE) y el Registro de
   Compras (RCE) del PLE clásico (archivo TXT que tú generas y guardas) al **SIRE**, un sistema donde
@@ -56,7 +71,7 @@ Notas importantes de honestidad técnica (para que sepas exactamente qué automa
   siguen reglas específicas de la R.S. 037-2002 y 058-2006/SUNAT; revísalas para tu caso antes de
   activar el cálculo automático en producción.
     """,
-    'version': '18.0.1.0.0',
+    'version': '18.0.2.0.0',
     'category': 'Accounting/Localizations',
     'author': "Designweblp",
     'maintainer': "Designweblp",
@@ -92,6 +107,7 @@ Notas importantes de honestidad técnica (para que sepas exactamente qué automa
         'views/l10n_pe_accounting_plame_views.xml',
         'views/l10n_pe_accounting_financial_report_views.xml',
         'views/l10n_pe_accounting_menus.xml',
+        'views/account_config_menus.xml',
         'report/l10n_pe_accounting_retention_report.xml',
         'report/l10n_pe_accounting_perception_report.xml',
     ],

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Estas cuatro pantallas ya existen 100% nativas en Odoo 18 (modelo,
+         vistas, lógica) — Extractos bancarios y Cajas Registradoras incluso
+         ya tienen su propia acción nativa; a Etiquetas de cuenta y Grupos de
+         cuentas solo les faltaba la acción. A ninguna le faltaba nada de
+         funcionalidad: a las cuatro les faltaba únicamente el ítem de menú
+         para llegar sin entrar a Modo Desarrollador. Se agregan junto a
+         Plan de Cuentas / Impuestos / Posiciones Fiscales, en el mismo
+         lugar donde ya vive el resto de la configuración de Contabilidad. -->
+
+    <record id="action_account_group" model="ir.actions.act_window">
+        <field name="name">Grupos de cuentas</field>
+        <field name="res_model">account.group</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="account.view_account_group_tree"/>
+        <field name="search_view_id" ref="account.view_account_group_search"/>
+    </record>
+
+    <record id="action_account_tag" model="ir.actions.act_window">
+        <field name="name">Etiquetas de cuenta</field>
+        <field name="res_model">account.account.tag</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="account.account_tag_view_tree"/>
+        <field name="search_view_id" ref="account.account_tag_view_search"/>
+    </record>
+
+    <menuitem id="menu_l10n_pe_accounting_group" name="Grupos de cuentas"
+              parent="account.account_account_menu" action="action_account_group"
+              groups="account.group_account_manager" sequence="9"/>
+    <menuitem id="menu_l10n_pe_accounting_tag" name="Etiquetas de cuenta"
+              parent="account.account_account_menu" action="action_account_tag"
+              groups="account.group_account_manager" sequence="10"/>
+    <menuitem id="menu_l10n_pe_accounting_bank_statement" name="Extractos bancarios"
+              parent="account.account_banks_menu" action="account.action_bank_statement_tree"
+              groups="account.group_account_manager" sequence="2"/>
+    <menuitem id="menu_l10n_pe_accounting_cash_register" name="Cajas registradoras"
+              parent="account.account_banks_menu" action="account.action_view_bank_statement_tree"
+              groups="account.group_account_manager" sequence="4"/>
+</odoo>
